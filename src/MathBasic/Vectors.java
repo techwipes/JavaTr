@@ -25,5 +25,20 @@ public class Vectors {
         return result;
     }
 
-    // calculating vector's op
+    // calculating vector's op (y1z2 - z1y2, z1x2 - x1z2, x1y2 - y1x2)
+    public Vectors vectorOp(Vectors vector){
+        return new Vectors(
+                y * vector.z - z * vector.y,
+                z * vector.x - x * vector.z,
+                x * vector.y - y * vector.x
+        ) ;
+    }
+
+    // calculating cos between vectors (a*b)/|a|*|b|
+
+    public double cosVectors(Vectors vector){
+        return scalarOp(vector) / (vectorLenght() * vector.vectorLenght());
+    }
+
+
 }
