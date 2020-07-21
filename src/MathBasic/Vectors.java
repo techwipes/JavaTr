@@ -40,5 +40,50 @@ public class Vectors {
         return scalarOp(vector) / (vectorLenght() * vector.vectorLenght());
     }
 
+    // calculating summ vectors
+    public Vectors add(Vectors vector){
+        return new Vectors(
+                x + vector.x,
+                y + vector.y,
+                z + vector.z
+        );
+    }
 
+    // calculating vector's subtraction
+    public Vectors subtract(Vectors vector){
+        return new Vectors(
+                x - vector.x,
+                y - vector.y,
+                z - vector.z
+        );
+    }
+
+    // static generator for array with Vectors
+    public static Vectors[] generate(int n){
+        Vectors[] VectorsArray = new Vectors[n];
+            for (int i = 0; i < VectorsArray.length; i++){
+                VectorsArray[i] = new Vectors(Math.random() , Math.random() , Math.random());
+            }
+            return VectorsArray;
+    }
+
+    @Override
+
+    public String toString(){
+        return "Vector{" + "x=" + x + ", y=" + y + ", z=" + z + "}";
+    }
+
+}
+
+
+class VectorsTest{
+    public static void main(String[] args) {
+        Vectors[] VectorsArray = Vectors.generate(20);
+        System.out.println(VectorsArray[0]);
+        System.out.println(VectorsArray[1]);
+        System.out.println(VectorsArray[0].vectorLenght());
+        System.out.println(VectorsArray[0].scalarOp(VectorsArray[1]));
+        System.out.println(VectorsArray[0].cosVectors(VectorsArray[2]));
+
+    }
 }
