@@ -14,9 +14,9 @@ public class GuessGame {
         int guessp2 = 0;
         int guessp3 = 0;
 
-        boolean p1isRight = False;
-        boolean p2isRight = False;
-        boolean p3isRight = False;
+        boolean p1isRight = false;
+        boolean p2isRight = false;
+        boolean p3isRight = false;
 
         int targetNumber = (int)(Math.random() * 10);
         System.out.println("I guess a number from 0 to 10");
