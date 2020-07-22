@@ -68,10 +68,10 @@ public class VectorMultiSize {
     }
 
     // vector generator
-    public static VectorMultiSize[] generate(int n , int dimension){
+    public static VectorMultiSize[] generate(int n, int dimension) {
         VectorMultiSize[] vectors = new VectorMultiSize[n];
-        for (int i =0; i<vectors.length; i++){
-            vectors[i]= new VectorMultiSize(generatorRandomArray(dimension));
+        for (int i = 0; i < vectors.length; i++) {
+            vectors[i] = new VectorMultiSize(generatorRandomArray(dimension));
         }
         return vectors;
     }
