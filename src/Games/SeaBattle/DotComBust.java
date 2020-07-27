@@ -23,7 +23,7 @@ public class DotComBust {
         three.SetName("SaintJade");
 
         System.out.println("Your target - destroy 3 ships");
-        System.out.println(one.name + " " two.name + " " + three.name );
+        System.out.println(one.name + " " + two.name + " " + three.name );
         System.out.println("Try to do it fast, Good luck!");
 
         for (DotCom dotComToSet : dotComList){
@@ -34,9 +34,11 @@ public class DotComBust {
     ;
 
     public void startPlaying() {
-        while (dotComList.isEmpty() != true) {
-            checkUserGuess("UserGuess");
+        while (!dotComList.isEmpty()) {
+            String userGuess = helper.getUserInput("Make a move!");
+            checkUserGuess(UserGuess);
         }
+        finishGame();
     }
 
     ;
