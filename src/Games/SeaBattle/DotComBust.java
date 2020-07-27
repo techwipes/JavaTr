@@ -20,7 +20,15 @@ public class DotComBust {
         DotCom two = new DotCom();
         two.SetName("BlackBear");
         DotCom three = new DotCom();
-        
+        three.SetName("SaintJade");
+
+        System.out.println("Your target - destroy 3 ships");
+        System.out.println(one.name + " " two.name + " " + three.name );
+        System.out.println("Try to do it fast, Good luck!");
+
+        for (DotCom dotComToSet : dotComList){
+            ArrayList <String> newLocation = helper.placeDotCom(3);
+            dotComToSet.setLocationCells(newLocation);
     }
 
     ;
