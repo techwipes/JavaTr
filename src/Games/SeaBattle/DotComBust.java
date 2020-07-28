@@ -16,11 +16,11 @@ public class DotComBust {
     private void setUpGame() {
         // creating and placing ships
         DotCom one = new DotCom();
-        one.SetName("Hella");
+        one.setName("Hella");
         DotCom two = new DotCom();
-        two.SetName("BlackBear");
+        two.setName("BlackBear");
         DotCom three = new DotCom();
-        three.SetName("SaintJade");
+        three.setName("SaintJade");
         dotComList.add(one);
         dotComList.add(two);
         dotComList.add(three);
@@ -38,7 +38,7 @@ public class DotComBust {
         private void startPlaying(){
             while (!dotComList.isEmpty()) {
                 String userGuess = helper.getUserInput("Make a move!");
-                checkUserGuess(UserGuess);
+                checkUserGuess(userGuess);
             }
             finishGame();
         }
@@ -48,7 +48,7 @@ public class DotComBust {
             numOfGuesses++;
             String result = "Miss";
             for (DotCom DotComToTest : dotComList) {
-                result = DotComToTest.checkYourself(UserGuess);
+                result = DotComToTest.checkYourSelf(UserGuess);
                 if (result.equals("Hit!"){
                     break;
                 }
