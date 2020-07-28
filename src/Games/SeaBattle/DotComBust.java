@@ -26,6 +26,7 @@ public class DotComBust {
         dotComList.add(three);
 
         System.out.println("Your target - destroy 3 ships");
+        System.out.println("Enter coords like a1 or d4 in range alpha = (abcdefg) number = (0123456)");
         System.out.println(one.getName() + " " + two.getName() + " " + three.getName());
         System.out.println("Try to do it fast, Good luck!");
 
@@ -46,7 +47,7 @@ public class DotComBust {
 
         private void checkUserGuess (String UserGuess){
             numOfGuesses++;
-            String result = "Miss";
+            String result = "Miss! Try again!";
             for (DotCom DotComToTest : dotComList) {
                 result = DotComToTest.checkYourSelf(UserGuess);
                 if (result.equals("Hit!")){
