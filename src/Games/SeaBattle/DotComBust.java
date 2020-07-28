@@ -26,7 +26,7 @@ public class DotComBust {
         dotComList.add(three);
 
         System.out.println("Your target - destroy 3 ships");
-        System.out.println(one.name + " " + two.name + " " + three.name);
+        System.out.println(one.getName() + " " + two.getName() + " " + three.getName());
         System.out.println("Try to do it fast, Good luck!");
 
         for (DotCom dotComToSet : dotComList) {
@@ -49,7 +49,7 @@ public class DotComBust {
             String result = "Miss";
             for (DotCom DotComToTest : dotComList) {
                 result = DotComToTest.checkYourSelf(UserGuess);
-                if (result.equals("Hit!"){
+                if (result.equals("Hit!")){
                     break;
                 }
                 if (result.equals("Destroyed!")){
