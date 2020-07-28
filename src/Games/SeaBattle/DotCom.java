@@ -21,6 +21,10 @@ public class DotCom {
         name = n;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String checkYourSelf(String userInput){
         String result = "Miss!";
         int index = locationCells.indexOf(userInput);
@@ -37,5 +41,6 @@ public class DotCom {
         }
         return result;
     }
+
 
 }
