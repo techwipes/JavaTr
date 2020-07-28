@@ -7,21 +7,15 @@ public class ClassesAndObjects {
         Person p1 = new Person();
         p1.name = "Yog";
         p1.age = 1442;
+        p1.speak();
         Person p2 = new Person();
         p2.name = "Faruh";
         p2.age = 42;
+        p2.speak();
 
-        System.out.println("My name is " + p1.name);
-        System.out.println("I am too old");
 
-        int [] loc = {1,2,3};
-        for (int l : loc){
-            if ( l == 2){
-                l += 5;
-            }
-            System.out.println(l);
-        };
-        System.out.println(Arrays.toString(loc));
+
+
     }
 }
 
@@ -29,4 +23,8 @@ public class ClassesAndObjects {
 class Person{
     String name;
     int age;
+
+    void speak(){
+        System.out.println("My name is " + name + "! I am " + age + " years old!");
+    }
 }
