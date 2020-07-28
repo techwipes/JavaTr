@@ -21,6 +21,9 @@ public class DotComBust {
         two.SetName("BlackBear");
         DotCom three = new DotCom();
         three.SetName("SaintJade");
+        dotComList.add(one);
+        dotComList.add(two);
+        dotComList.add(three);
 
         System.out.println("Your target - destroy 3 ships");
         System.out.println(one.name + " " + two.name + " " + three.name);
@@ -71,6 +74,11 @@ public class DotComBust {
             }
         }
 
+    public static void main(String[] args) {
+        DotComBust game = new DotComBust();
+        game.setUpGame();
+        game.startPlaying();
+    }
 
 
 }
