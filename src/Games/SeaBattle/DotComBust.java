@@ -23,45 +23,53 @@ public class DotComBust {
         three.SetName("SaintJade");
 
         System.out.println("Your target - destroy 3 ships");
-        System.out.println(one.name + " " + two.name + " " + three.name );
+        System.out.println(one.name + " " + two.name + " " + three.name);
         System.out.println("Try to do it fast, Good luck!");
 
-        for (DotCom dotComToSet : dotComList){
-            ArrayList <String> newLocation = helper.placeDotCom(3);
+        for (DotCom dotComToSet : dotComList) {
+            ArrayList<String> newLocation = helper.placeDotCom(3);
             dotComToSet.setLocationCells(newLocation);
-    }
-
-    ;
-
-    public void startPlaying() {
-        while (!dotComList.isEmpty()) {
-            String userGuess = helper.getUserInput("Make a move!");
-            checkUserGuess(UserGuess);
-        }
-        finishGame();
-    }
-
-    ;
-
-    public String checkUserGuess(String UserGuess) {
-        numOfGuesses++;
-        String result = "Miss";
-        for (DotCom:
-             dotComList) {
-             DotCom.checkYourself();
-
-            return result;
         }
     }
 
-    ;
+        private void startPlaying(){
+            while (!dotComList.isEmpty()) {
+                String userGuess = helper.getUserInput("Make a move!");
+                checkUserGuess(UserGuess);
+            }
+            finishGame();
+        }
 
 
-}
+        private void checkUserGuess (String UserGuess){
+            numOfGuesses++;
+            String result = "Miss";
+            for (DotCom DotComToTest : dotComList) {
+                result = DotComToTest.checkYourself(UserGuess);
+                if (result.equals("Hit!"){
+                    break;
+                }
+                if (result.equals("Destroyed!")){
+                    dotComList.remove(DotComToTest);
+                    break;
+                }
+            }
+            System.out.println(result);
 
+        }
 
+        private void finishGame(){
+            System.out.println("You have sunk all the ships!");
 
-
+            if( numOfGuesses <= 18){
+                System.out.println("It took only: " + numOfGuesses + "turns");
+                System.out.println("Not bad!");
+            }
+            else {
+                System.out.println("It took : " + numOfGuesses + "turns");
+                System.out.println("Train your accuracy!");
+            }
+        }
 
 
 
