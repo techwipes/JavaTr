@@ -17,6 +17,8 @@ class Human {
 
     public Human() {
         System.out.println("This is the first constructor");
+        this.age = 0;
+        this.name = "default";
     }
 
     public Human(String name) {
