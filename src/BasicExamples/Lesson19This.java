@@ -7,6 +7,12 @@ public class Lesson19This {
         h1.setName("Ivan");
         h1.getInfo();
         Human h2 = new Human("Jake");
+
+        Human.description = "some info";
+        Human.getDescription();
+
+        h1.getDescription();
+
     }
 }
 
@@ -14,6 +20,7 @@ public class Lesson19This {
 class Human {
     private String name;
     private int age;
+    public static String description;
 
     public Human() {
         System.out.println("This is the first constructor");
@@ -51,5 +58,14 @@ class Human {
 
     public void getInfo() {
         System.out.println(name + " : " + age);
+    }
+
+    public static void getDescription() {
+        System.out.println(description);
+    }
+
+    public static void printAllFields(){
+        System.out.println(description);
+        System.out.println();
     }
 }
