@@ -16,7 +16,7 @@ public class Test {
         info1.showInfo();
         info2.showInfo();
         outpootInfo(one);
-        }
+                }
 
         public static void outpootInfo(Info info){
         info.showInfo();
