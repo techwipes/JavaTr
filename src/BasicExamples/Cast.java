@@ -9,7 +9,7 @@ public class Cast {
         float f = 123.2f; // 32 bits or 4 bytes
         x = (int) y;
 
-        
+
         //  incorrect  - boolean b = (boolean) 1;
         //  incorrect  - byte b1 = (byte) false;
 
