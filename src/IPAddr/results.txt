@@ -1,0 +1,29 @@
+1:
+100171
+Used memory is bytes: 11761504
+Used memory is megabytes: 11
+75ms
+sortedArrayList -> HashSet
+
+
+2:
+100171
+Used memory is bytes: 11760816
+Used memory is megabytes: 11
+66ms
+Only HashSet
+
+3:
+100171
+Used memory is bytes: 7316712
+Used memory is megabytes: 6
+36946ms
+OnlyArrayList
+
+
+4:
+100171
+Used memory is bytes: 13112480
+Used memory is megabytes: 12
+172ms
+sortedArrayList -> ArrayList
