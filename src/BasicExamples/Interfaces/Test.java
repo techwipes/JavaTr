@@ -1,6 +1,7 @@
 package BasicExamples.Interfaces;
 
 public class Test {
+
     public static void main(String[] args) {
 
         Animal animal1 = new Animal(4);
@@ -16,10 +17,10 @@ public class Test {
         info1.showInfo();
         info2.showInfo();
         outpootInfo(one);
-                }
-
-        public static void outpootInfo(Info info){
-        info.showInfo();
-        }
     }
+
+    public static void outpootInfo(Info info) {
+        info.showInfo();
+    }
+}
 
