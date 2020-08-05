@@ -57,7 +57,7 @@ class IPAddrBitSetTest {
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println(elapsedTime/6000 + "sec");
+        System.out.println(elapsedTime/1000 + "sec");
 
         System.out.println(bMap.cardinality());
     }
