@@ -9,43 +9,10 @@ public class Test {
 
 
     public static void main(String[] args) throws IOException {
-        long startTime = System.currentTimeMillis();
-        //ArrayList<String> result = new ArrayList<String>();
-        InputStream input = new FileInputStream("./src/IPAddr/IP.txt");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        Map<String, Integer> duplicateCount = new HashMap<>();
-        int value = 0;
-        while (reader.ready()) {
-            String s = reader.readLine();
-            if (duplicateCount.containsKey(s)) {
-                continue;
-            } else
-                duplicateCount.put(s, duplicateCount.get(s));
-        }
+        String s = "192.168.140.111";
+        System.out.println(s.hashCode());
 
-        System.out.println(duplicateCount.size());
-
-
-
-    // Get the Java runtime
-    Runtime runtime = Runtime.getRuntime();
-    // Run the garbage collector
-        runtime.gc();
-
-    // Calculate the used memory
-    long memory = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("Used memory is bytes: "+memory);
-        System.out.println("Used memory is megabytes: "
-                +
-
-    bytesToMegabytes(memory));
-
-    long stopTime = System.currentTimeMillis();
-    long elapsedTime = stopTime - startTime;
-        System.out.println(elapsedTime);
-
-
-}
+    }
 }
 
 /*
