@@ -1,4 +1,4 @@
-
+package BasicExamples;
 
 
 public class FirstInit {
