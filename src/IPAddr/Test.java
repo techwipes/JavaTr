@@ -3,15 +3,41 @@ package IPAddr;
 import java.io.*;
 import java.util.*;
 
-import static IPAddr.PerfomanceTest.bytesToMegabytes;
 
 public class Test {
 
 
     public static void main(String[] args) throws IOException {
-        String s = "192.168.140.111";
-        System.out.println(s.hashCode());
 
+        BitSet mapPoz = new BitSet(2 ^ 31);
+        BitSet mapNeg = new BitSet(2 ^ 31);
+
+        String path = "D:\\trrnts\\ip_addresses\\ip_addresses.txt";
+        //String path = "./src/IPAddr/IP.txt";
+        InputStream input = new FileInputStream(path);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        int bitIndexMask = 32;
+        while (reader.ready()) {
+            String s = reader.readLine();
+            int value = s.hashCode();
+            if (value < 0) {
+                value = BitMask.flipBit(value, bitIndexMask);
+
+                if (mapNeg.get(value)) {
+                    continue;
+                } else {
+                    mapNeg.set(value);
+                }
+            }
+            else if (mapPoz.get(s.hashCode())) {
+                continue;
+            } else {
+                mapPoz.set(s.hashCode());
+            }
+        }
+
+        reader.close();
+        System.out.println(mapNeg.cardinality() + mapPoz.cardinality());
     }
 }
 
