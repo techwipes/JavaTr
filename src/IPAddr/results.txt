@@ -1,3 +1,5 @@
+test  file.txt 3bm
+
 1:
 100171
 Used memory is bytes: 11761504
@@ -27,3 +29,38 @@ Used memory is bytes: 13112480
 Used memory is megabytes: 12
 172ms
 sortedArrayList -> ArrayList
+
+5.
+100168
+Used memory is bytes: 1302691840
+Used memory is megabytes: 1242
+0sec
+BitSet
+
+
+Test file.txt 120Gb
+
+1:
+Failed
+sortedArrayList -> HashSet
+
+
+2:
+Failed
+Only HashSet
+
+3:
+Failed
+OnlyArrayList
+
+
+4:
+Failed
+sortedArrayList -> ArrayList
+
+5.
+891079047
+Used memory is bytes: 1302691840
+Used memory is megabytes: 1242
+1420sec / 23 min
+BitSet
