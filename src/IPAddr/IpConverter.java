@@ -1,29 +1,27 @@
 package IPAddr;
 
+import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+
 public class IpConverter {
 
 
-    public static long ipToLong(String ipAddress) {
+    public static String ipToInt(String ipAddress) throws UnknownHostException {
 
-        String[] ipAddressInArray = ipAddress.split("\\.");
-
-        long result = 0;
-        for (int i = 0; i < ipAddressInArray.length; i++) {
-
-            int power = 3 - i;
-            int ip = Integer.parseInt(ipAddressInArray[i]);
-            result += ip * Math.pow(256, power);
-
-        }
-
-        return result;
+        byte[] bytes = InetAddress.getByName(ipAddress).getAddress();
+        String data_out = new BigInteger(1, bytes).toString(2);
+        return data_out;
     }
 }
 
 
 class TestIP {
-    public static void main(String[] args) {
-        String ip = "255.255.255.255";
-        System.out.println(IpConverter.ipToLong(ip));
+    public static void main(String[] args) throws UnknownHostException {
+        String ip = "255.255.255.2";
+        String result = IpConverter.ipToInt(ip);
+        System.out.println(result);
+
     }
 }
