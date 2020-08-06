@@ -1,64 +1,83 @@
 package IPAddr;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.BitSet;
 
 import static IPAddr.PerfomanceTest.bytesToMegabytes;
 
+
 public class IPAddrBitSet {
-    BitSet map = new BitSet(2 ^ 32);
-    String[] data = {"1", "2", "3", "4", "5", "1", "3", "4", "6"};
-    int[] data2 = {1, 2, 3};
-
-}
-
-
-class IPAddrBitSetTest {
     public static void main(String[] args) throws IOException {
+        // переменная для замера времени
         long startTime = System.currentTimeMillis();
-        BitSet bMap = new BitSet((2 ^ 32));
 
-        InputStream input = new FileInputStream("D:\\trrnts\\ip_addresses\\ip_addresses.txt");
+        /**
+         * Заводим две битовых карты,  каждая содержит 2147483648 ячеек
+         *  В mapPoz будем помещать Ip с положительным значением hashcode
+         *  В mapNeg будем помещать Ip с отрицательным значением hashcode
+         *  Диапазон int от -2147483648 до 2147483647 , уникальных значений IPv4 2^32 4294967296
+         *  Так как констркутор битовой карты принимает int и индексация начинается с нуля, в одну карту не получиться поместить все значения адресов
+         *
+         *
+         */
+
+
+        BitSet mapPoz = new BitSet(2 ^ 31);
+        BitSet mapNeg = new BitSet(2 ^ 31);
+
+        // Считываем строчку из файла, получаем её hashcode,  и смотрим в какую карту поместить
+
+
+        String path = "D:\\trrnts\\ip_addresses\\ip_addresses.txt";
+        //String path = "./src/IPAddr/IP.txt";
+        InputStream input = new FileInputStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        try {
 
 
         while (reader.ready()) {
+
+            int bitMask = 32;
             String s = reader.readLine();
-            if (bMap.get(Math.abs(s.hashCode())))
-            {
-                continue;
+            int value = s.hashCode();
+
+            if (value < 0) {
+                value = BitMask.flipBit(value, bitMask);
+
+                if (mapNeg.get(value)) {
+                    continue;
+                } else {
+                    mapNeg.set(value);
+                }
+
+            } else {
+                if (mapPoz.get(value)) {
+                    continue;
+                } else {
+                    mapPoz.set(value);
+                }
             }
-            else{
-
-                bMap.set(Math.abs(s.hashCode()));
-            }
         }
-        reader.close();
-        }
-        catch (IndexOutOfBoundsException i){
-            System.out.println(bMap.cardinality());
+            reader.close();
 
-        }
+            // выводим  кол-во  уникальных адресов
+            System.out.println(mapNeg.cardinality() + mapPoz.cardinality());
+
+            // Get the Java runtime
+            Runtime runtime = Runtime.getRuntime();
+            // Run the garbage collector
+            //runtime.gc();
+
+            // Calculate the used memory
+            long memory = runtime.totalMemory() - runtime.freeMemory();
+            System.out.println("Used memory is bytes: " + memory);
+            System.out.println("Used memory is megabytes: "
+                    + bytesToMegabytes(memory));
 
 
-        // Get the Java runtime
-        Runtime runtime = Runtime.getRuntime();
-        // Run the garbage collector
-        //runtime.gc();
+            long stopTime = System.currentTimeMillis();
+            long elapsedTime = stopTime - startTime;
+            System.out.println(elapsedTime / 1000 + "sec");
 
-        // Calculate the used memory
-        long memory = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("Used memory is bytes: " + memory);
-        System.out.println("Used memory is megabytes: "
-                + bytesToMegabytes(memory));
 
-        long stopTime = System.currentTimeMillis();
-        long elapsedTime = stopTime - startTime;
-        System.out.println(elapsedTime/1000 + "sec");
-
-        System.out.println(bMap.cardinality());
     }
 }
