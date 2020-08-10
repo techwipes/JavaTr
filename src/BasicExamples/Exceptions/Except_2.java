@@ -3,7 +3,7 @@ package BasicExamples.Exceptions;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Except2 {
+public class Except_2 {
     public static void main(String[] args) throws ScannerException {
         Scanner scanner = new Scanner((System.in));
         while (true) {
