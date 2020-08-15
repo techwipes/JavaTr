@@ -7,16 +7,16 @@ import java.awt.event.ActionListener;
 
 public class SimpleGui1B implements ActionListener {
     JButton button;
-    //MyDrawPanel panel;
+    MyDrawPanel panel;
 
     public void go() {
         JFrame frame = new JFrame();
         button = new JButton("click me");
-        //panel = new MyDrawPanel();
+        panel = new MyDrawPanel();
         button.addActionListener(this);
 
         frame.getContentPane().add(button);
-        //frame.getContentPane().add(panel);
+        frame.getContentPane().add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
         frame.setVisible(true);
